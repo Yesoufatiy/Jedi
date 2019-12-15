@@ -1,0 +1,40 @@
+
+output of jedi2.1Tess with
+
+  var paramPassing = byText
+  var staticScoping = true
+
+-> write("...Testing Jedi 2.1...")
+...Testing Jedi 2.1...
+done
+-> def x = 10
+ok
+-> def y = 20
+ok
+-> def z = 30
+ok
+-> def f1 = {def x = 1; freeze({write("abc"); x + x})}
+ok
+-> def f2 = {def x = 1; delay({write("abc"); x + x})}
+ok
+-> f1
+abc
+2
+-> f1
+2
+-> f2
+abc
+20
+-> def always0 = lambda(x) 0
+ok
+-> always0({write("abc"); 10})
+0
+-> def add5 = lambda(y) { def x = 5; x + y}
+ok
+-> add5(x + 2)
+12
+-> def add2 = {def y = 2; lambda(x) x + y}
+ok
+-> add2(3)
+5
+bye

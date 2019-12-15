@@ -1,0 +1,60 @@
+-> def count = var(0)
+ok
+-> count
+[0]
+-> [count]
+0
+-> def incCount = lambda() count = [count] + 1
+ok
+-> incCount()
+done
+-> incCount()
+done
+-> count
+[2]
+-> while ([count] < 10) { write("calling incCount"); incCount() }
+calling incCount
+calling incCount
+calling incCount
+calling incCount
+calling incCount
+calling incCount
+calling incCount
+calling incCount
+done
+-> count
+[10]
+-> def tri = lambda (n) { def result = var(0); def count = var(0); while([count] < n + 1) { result = [result] + [count]; count = [count] + 1}; [result]}
+ok
+-> tri(5)
+15
+-> tri(6)
+21
+-> def scores = store(85, 23, 99, 56)
+ok
+-> scores
+{ 85 23 99 56}
+-> get(1, scores)
+23
+-> put(60, 2, scores)
+done
+-> scores
+{ 85 23 60 99 56}
+-> def scores2 = map(lambda(x) x + 1, scores)
+ok
+-> scores2
+{ 86 24 61 100 57}
+-> def scores3 = filter(lambda(x) 70 < x, scores2)
+ok
+-> scores3
+{ 86 100}
+-> def print = lambda(s) { def i = var(size(s) - 1); while(-1 < [i]) {write(get([i], s)); i = [i] - 1}}
+ok
+-> print(scores)
+56
+99
+60
+23
+85
+done
+bye

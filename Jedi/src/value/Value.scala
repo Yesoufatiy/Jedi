@@ -1,0 +1,5 @@
+package value
+
+trait Value {
+  
+}

@@ -1,0 +1,26 @@
+running scope test with:
+
+  var paramPassing = byValue
+  var staticScoping = false
+
+
+-> def y = 10
+ok
+-> def add2 = {def y = 2; lambda(x) x + y}
+ok
+-> add2(5)
+15
+bye
+
+running scope test with:
+
+  var paramPassing = byValue
+  var staticScoping = true
+
+-> def y = 10
+ok
+-> def add2 = {def y = 2; lambda(x) x + y}
+ok
+-> add2(5)
+7
+bye
