@@ -1,0 +1,61 @@
+output of jedi3Tests
+  var paramPassing = byValue
+  var staticScoping = true
+
+-> write("...Testing Jedi 2.0...")
+...Testing Jedi 2.0...
+done
+-> def x = 10
+ok
+-> def y = 20
+ok
+-> def z = 30
+ok
+-> {def x = 5; def y = z + 1; x + y + z}
+66
+-> {def x = 3; def y = 1; x + {def x = 2; x + y + z}}
+36
+-> def cube = lambda(x) x * x * x
+ok
+-> cube(3)
+27
+-> def tri = lambda(n) if (n == 0) 0 else n + tri(n - 1)
+ok
+-> tri(5)
+15
+-> def compose = lambda(f, g) lambda(x) f(g(x))
+ok
+-> def pow6 = compose(cube, lambda(x) x * x)
+ok
+-> pow6(2)
+64
+-> def times2 = lambda(x) { def f = 2; f * x}
+ok
+-> times2(7)
+14
+-> def add5 = {def x = 5; lambda(y) x + y}
+ok
+-> add5(6)
+11
+-> write("...Testing Jedi 3.0...")
+...Testing Jedi 3.0...
+done
+-> def bal = var(5)
+ok
+-> bal := cube([bal])
+done
+-> bal
+[125]
+-> [bal]
+125
+-> def deposit = lambda(amt) bal := [bal] + amt
+ok
+-> deposit(50)
+done
+-> bal
+[175]
+-> def fact = lambda(n) { def result = var(1); def count = var(1); while([count] < n + 1) { result := [count] * [result]; count := [count] + 1 }; [result]}
+ok
+-> fact(5)
+120
+bye

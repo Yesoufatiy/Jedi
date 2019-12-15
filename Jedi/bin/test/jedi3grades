@@ -1,0 +1,37 @@
+write("...Testing Jedi 2.0...")
+
+def x = 10
+def y = 20
+def z = 30
+
+{def x = 5; def y = z + 1; x + y + z}
+{def x = 3; def y = 1; x + {def x = 2; x + y + z}}
+
+def cube = lambda(x) x * x * x
+cube(3)
+
+def tri = lambda(n) if (n == 0) 0 else n + tri(n - 1)
+tri(5)
+
+def compose = lambda(f, g) lambda(x) f(g(x))
+def pow6 = compose(cube, lambda(x) x * x)
+pow6(2)
+
+def times2 = lambda(x) { def f = 2; f * x}
+times2(7)
+
+def add5 = {def x = 5; lambda(y) x + y}
+add5(6)
+
+write("...Testing Jedi 3.0...")
+
+def bal = var(5)
+bal = cube([bal])
+bal
+[bal]
+def deposit = lambda(amt) bal = [bal] + amt
+deposit(50)
+bal
+
+def fact = lambda(n) { def result = var(1); def count = var(1); while([count] < n + 1) { result = [count] * [result]; count = [count] + 1 }; [result]}
+fact(5)

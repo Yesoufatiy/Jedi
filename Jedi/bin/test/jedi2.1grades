@@ -1,0 +1,20 @@
+write("...Testing Jedi 2.1...")
+
+def x = 10
+def y = 20
+def z = 30
+
+def f1 = {def x = 1; freeze({write("abc"); x + x})}
+def f2 = {def x = 1; delay({write("abc"); x + x})}
+f1
+f1
+f2
+
+def always0 = lambda(x) 0
+always0({write("abc"); 10})
+
+def add5 = lambda(y) { def x = 5; x + y}
+add5(x + 2)
+
+def add2 = {def y = 2; lambda(x) x + y}
+add2(3)
